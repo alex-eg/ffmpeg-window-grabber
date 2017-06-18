@@ -15,5 +15,5 @@ time=$(date +"%F-%T")
 echo "Now please move mouse pointer away from window!"
 sleep 2
 ffmpeg -f x11grab -video_size ${w}x${h} -r 30 -i :0.0${corner} -q:v 0 -vcodec huffyuv /tmp/grab-${time}.avi
-ffmpeg -i /tmp/grab-${time}.avi -c:v libx264 -crf 19 -preset slow -vf -pix_fmt yuv420p ./grab-${time}.mp4
+ffmpeg -i /tmp/grab-${time}.avi -c:v libx264 -crf 19 -preset slow -pix_fmt yuv420p ./grab-${time}.mp4
 rm -f /tmp/grab-${time}.avi
